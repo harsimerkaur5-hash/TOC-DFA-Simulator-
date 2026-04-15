@@ -7,8 +7,8 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8f7f4;color:#1a1a18;font-size:14px;min-height:100vh}
-.page{max-width:820px;margin:0 auto;padding:2rem 1rem} 
-header{margin-bottom:2rem}
+.page{max-width:820px;margin:0 auto;padding:2rem 1rem}
+header{margin-bottom:1.5rem}
 header h1{font-size:22px;font-weight:600;margin-bottom:4px}
 header p{font-size:13px;color:#73726c}
 .card{background:#fff;border:0.5px solid #d3d1c7;border-radius:12px;padding:1.25rem;margin-bottom:1rem}
@@ -20,18 +20,20 @@ header p{font-size:13px;color:#73726c}
 .svg-wrap{border:0.5px solid #d3d1c7;border-radius:12px;background:#f8f7f4;margin-bottom:14px;overflow:hidden}
 svg.dfasvg{display:block;width:100%;height:190px}
 .sec-label{font-size:11px;font-weight:600;color:#73726c;text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
-.examples{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.examples{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
 .ex-label{font-size:11px;color:#888780;margin-right:2px}
 .ex-pill{padding:3px 11px;border:0.5px solid #d3d1c7;border-radius:20px;font-size:12px;cursor:pointer;background:#fff;color:#5f5e5a;font-family:monospace;transition:.15s}
 .ex-pill:hover{border-color:#888780;color:#1a1a18}
-.input-row{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.input-row{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
 input[type=text]{flex:1;min-width:100px;padding:8px 12px;font-size:14px;border:0.5px solid #d3d1c7;border-radius:8px;background:#fff;color:#1a1a18;font-family:inherit;outline:none;transition:.15s}
 input[type=text]:focus{border-color:#378ADD;box-shadow:0 0 0 2px #E6F1FB}
 button{padding:8px 16px;font-size:13px;border:0.5px solid #d3d1c7;border-radius:8px;background:#fff;color:#1a1a18;cursor:pointer;transition:.15s;font-family:inherit;white-space:nowrap}
 button:hover{background:#f1efe8;border-color:#888780}
 button:active{transform:scale(.98)}
 .btn-run{background:#1a1a18;color:#fff;border-color:#1a1a18}
-.btn-run:hover{background:#2c2c2a;border-color:#2c2c2a}
+.btn-run:hover{background:#2c2c2a}
+.btn-save{background:#E6F1FB;color:#0C447C;border-color:#85B7EB}
+.btn-save:hover{background:#B5D4F4;border-color:#378ADD}
 .tape{display:flex;gap:4px;flex-wrap:wrap;min-height:52px;align-items:center;margin-bottom:14px}
 .tc{width:42px;height:42px;border:0.5px solid #d3d1c7;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:18px;font-weight:600;background:#fff;transition:all .3s;position:relative;flex-shrink:0;color:#1a1a18}
 .tc .ti{font-size:9px;font-weight:400;color:#888780;position:absolute;bottom:3px;font-family:monospace}
@@ -50,18 +52,21 @@ button:active{transform:scale(.98)}
 .v-accept{background:#EAF3DE;color:#27500A}
 .v-reject{background:#FCEBEB;color:#791F1F}
 .v-running{background:#E6F1FB;color:#0C447C}
-.v-ready{background:#f1efe8;color:#5f5e5a}
-.nav-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.nav-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px}
 .step-counter{font-size:12px;color:#888780;margin-left:auto;font-family:monospace}
-.log-wrap{border:0.5px solid #d3d1c7;border-radius:8px;background:#f8f7f4;padding:10px 12px;max-height:160px;overflow-y:auto;margin-bottom:14px}
-.log-row{display:flex;gap:10px;align-items:baseline;padding:3px 0;border-bottom:0.5px solid #ebe9e0;font-size:12px}
-.log-row:last-child{border:none}
-.lr-n{color:#888780;min-width:20px;font-family:monospace}
-.lr-f{font-family:monospace;color:#1a1a18;font-weight:600;min-width:150px}
-.lr-e{color:#5f5e5a}
-.lr-acc{color:#27500A;font-weight:600}
-.lr-rej{color:#791F1F;font-weight:600}
-.lr-hi{background:#E6F1FB !important}
+.history-actions{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.history-list{display:flex;flex-direction:column;gap:5px;max-height:240px;overflow-y:auto}
+.history-item{display:flex;align-items:center;gap:8px;padding:8px 11px;border:0.5px solid #d3d1c7;border-radius:8px;background:#fff;cursor:pointer;transition:.15s}
+.history-item:hover{background:#f8f7f4;border-color:#888780}
+.hi-str{font-family:monospace;font-size:13px;font-weight:600;color:#1a1a18;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hi-str.mt{color:#888780;font-style:italic}
+.hi-badge{padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;flex-shrink:0}
+.hi-acc{background:#EAF3DE;color:#27500A}
+.hi-rej{background:#FCEBEB;color:#791F1F}
+.hi-dfa{font-size:11px;color:#888780;flex-shrink:0;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hi-del{padding:3px 8px;font-size:12px;border:0.5px solid #d3d1c7;border-radius:6px;background:transparent;color:#888780;cursor:pointer;transition:.15s;line-height:1;flex-shrink:0}
+.hi-del:hover{background:#FCEBEB;color:#A32D2D;border-color:#F09595}
+.empty-msg{font-size:13px;color:#888780;padding:12px 0;text-align:center}
 .tt-wrap{overflow-x:auto}
 table.tt{width:100%;border-collapse:collapse;font-size:13px}
 .tt th,.tt td{padding:7px 12px;border:0.5px solid #d3d1c7;text-align:center}
@@ -78,21 +83,20 @@ footer{text-align:center;font-size:12px;color:#888780;margin-top:2rem;padding-bo
 
 <header>
   <h1>DFA Simulator</h1>
-  <p>Deterministic Finite Automaton — step-by-step interactive visualizer &nbsp;|&nbsp; Theory of Computation</p>
+  <p>Deterministic Finite Automaton &mdash; step-by-step interactive visualizer &nbsp;|&nbsp; Theory of Computation</p>
 </header>
 
 <div class="card">
   <div class="sec-label">Choose a DFA</div>
   <div class="dfa-tabs" id="dfaTabs"></div>
   <div class="dfa-desc" id="dfaDesc"></div>
-
   <div class="svg-wrap"><svg class="dfasvg" id="dfaSvg" viewBox="0 0 640 190"></svg></div>
-
   <div class="sec-label">Input string</div>
   <div class="examples"><span class="ex-label">Try:</span><span id="exPills" style="display:flex;gap:5px;flex-wrap:wrap"></span></div>
   <div class="input-row">
     <input type="text" id="strInput" placeholder="Type a string and press Run..."/>
     <button class="btn-run" onclick="initSim()">Run</button>
+    <button class="btn-save" onclick="saveInput()">Save</button>
     <button onclick="resetAll()">Reset</button>
   </div>
 </div>
@@ -100,11 +104,9 @@ footer{text-align:center;font-size:12px;color:#888780;margin-top:2rem;padding-bo
 <div class="card">
   <div class="sec-label">Input tape</div>
   <div class="tape" id="tape"><span style="color:#888780;font-size:13px">Tape will appear here after Run.</span></div>
-
   <div class="step-panel" id="stepPanel">
     <div style="color:#888780;font-size:13px">Press Run to start the simulation.</div>
   </div>
-
   <div class="nav-row">
     <button id="btnPrev" onclick="prevStep()" disabled>&#8592; Prev</button>
     <button id="btnNext" onclick="nextStep()" disabled>Next &#8594;</button>
@@ -114,8 +116,12 @@ footer{text-align:center;font-size:12px;color:#888780;margin-top:2rem;padding-bo
 </div>
 
 <div class="card">
-  <div class="sec-label">Execution log</div>
-  <div class="log-wrap" id="logWrap"><span style="color:#888780;font-size:12px">Log will appear after Run.</span></div>
+  <div class="sec-label">Saved inputs</div>
+  <div class="history-actions">
+    <span style="font-size:12px;color:#888780" id="histCount"></span>
+    <button onclick="clearHistory()" style="font-size:12px;padding:5px 12px;color:#A32D2D;border-color:#F09595;margin-left:auto">Clear all</button>
+  </div>
+  <div class="history-list" id="historyList"></div>
 </div>
 
 <div class="card">
@@ -130,83 +136,166 @@ footer{text-align:center;font-size:12px;color:#888780;margin-top:2rem;padding-bo
 const DFAS=[
   {
     id:0,name:"Ends in 1",
-    desc:"Language: all strings over {0,1} that end with the symbol 1.  q0 = 'last symbol seen was 0 (or no symbol yet)';  q1 = 'last symbol seen was 1' — this is the accepting state.",
+    desc:"Language: all strings over {0,1} that end with the symbol 1. q0 = last symbol was 0 or no input yet. q1 = last symbol was 1 (accepting state).",
     states:["q0","q1"],alpha:["0","1"],start:"q0",accept:["q1"],
     delta:{q0:{"0":"q0","1":"q1"},q1:{"0":"q0","1":"q1"}},
     examples:["1","01","001","101","111","0","10","100"],
     layout:{q0:{x:140,y:95},q1:{x:490,y:95}},
     edges:[
-      {f:"q0",t:"q1",sym:"1",curve:0},
-      {f:"q1",t:"q0",sym:"0",curve:1},
-      {f:"q0",t:"q0",sym:"0",self:true},
-      {f:"q1",t:"q1",sym:"1",self:true}
+      {f:"q0",t:"q1",sym:"1",curve:0},{f:"q1",t:"q0",sym:"0",curve:1},
+      {f:"q0",t:"q0",sym:"0",self:true},{f:"q1",t:"q1",sym:"1",self:true}
     ]
   },
   {
     id:1,name:"Even 0s",
-    desc:"Language: binary strings containing an even number of 0s (zero 0s also counts as even).  q0 = even count of 0s seen (accepting);  q1 = odd count of 0s seen.",
+    desc:"Language: binary strings with an even number of 0s (zero 0s counts as even). q0 = even count of 0s (accepting). q1 = odd count of 0s.",
     states:["q0","q1"],alpha:["0","1"],start:"q0",accept:["q0"],
     delta:{q0:{"0":"q1","1":"q0"},q1:{"0":"q0","1":"q1"}},
     examples:["","00","11","0011","1001","0","010"],
     layout:{q0:{x:140,y:95},q1:{x:490,y:95}},
     edges:[
-      {f:"q0",t:"q1",sym:"0",curve:0},
-      {f:"q1",t:"q0",sym:"0",curve:1},
-      {f:"q0",t:"q0",sym:"1",self:true},
-      {f:"q1",t:"q1",sym:"1",self:true}
+      {f:"q0",t:"q1",sym:"0",curve:0},{f:"q1",t:"q0",sym:"0",curve:1},
+      {f:"q0",t:"q0",sym:"1",self:true},{f:"q1",t:"q1",sym:"1",self:true}
     ]
   },
   {
     id:2,name:"Divisible by 3",
-    desc:"Language: binary strings whose numeric value is divisible by 3.  Each state represents the current remainder (0, 1, or 2) when divided by 3.  q0 (remainder 0) is the only accepting state.",
+    desc:"Language: binary strings whose numeric value is divisible by 3. States represent the remainder (0,1,2) when divided by 3. q0 (remainder 0) is the only accepting state.",
     states:["q0","q1","q2"],alpha:["0","1"],start:"q0",accept:["q0"],
     delta:{q0:{"0":"q0","1":"q1"},q1:{"0":"q2","1":"q0"},q2:{"0":"q1","1":"q2"}},
     examples:["0","11","110","1001","000","1","10"],
     layout:{q0:{x:110,y:95},q1:{x:350,y:40},q2:{x:350,y:150}},
     edges:[
-      {f:"q0",t:"q0",sym:"0",self:true},
-      {f:"q0",t:"q1",sym:"1",curve:0},
-      {f:"q1",t:"q2",sym:"0",curve:0},
-      {f:"q1",t:"q0",sym:"1",curve:1},
-      {f:"q2",t:"q1",sym:"0",curve:1},
-      {f:"q2",t:"q2",sym:"1",self:true}
+      {f:"q0",t:"q0",sym:"0",self:true},{f:"q0",t:"q1",sym:"1",curve:0},
+      {f:"q1",t:"q2",sym:"0",curve:0},{f:"q1",t:"q0",sym:"1",curve:1},
+      {f:"q2",t:"q1",sym:"0",curve:1},{f:"q2",t:"q2",sym:"1",self:true}
     ]
   },
   {
     id:3,name:"Contains 101",
-    desc:"Language: strings over {0,1} that contain the substring 101.  States track how much of the pattern '101' has been matched so far.  q3 is the accepting (trap) state once the pattern is found.",
+    desc:"Language: strings over {0,1} containing the substring 101. States track how much of the pattern has been matched. q3 is the accepting trap state.",
     states:["q0","q1","q2","q3"],alpha:["0","1"],start:"q0",accept:["q3"],
     delta:{q0:{"0":"q0","1":"q1"},q1:{"0":"q2","1":"q1"},q2:{"0":"q0","1":"q3"},q3:{"0":"q3","1":"q3"}},
     examples:["101","0101","1010","10101","100","110","01010"],
     layout:{q0:{x:80,y:95},q1:{x:230,y:95},q2:{x:390,y:95},q3:{x:545,y:95}},
     edges:[
-      {f:"q0",t:"q0",sym:"0",self:true},
-      {f:"q0",t:"q1",sym:"1",curve:0},
-      {f:"q1",t:"q2",sym:"0",curve:0},
-      {f:"q1",t:"q1",sym:"1",self:true},
-      {f:"q2",t:"q0",sym:"0",curveDown:true},
-      {f:"q2",t:"q3",sym:"1",curve:0},
+      {f:"q0",t:"q0",sym:"0",self:true},{f:"q0",t:"q1",sym:"1",curve:0},
+      {f:"q1",t:"q2",sym:"0",curve:0},{f:"q1",t:"q1",sym:"1",self:true},
+      {f:"q2",t:"q0",sym:"0",curveDown:true},{f:"q2",t:"q3",sym:"1",curve:0},
       {f:"q3",t:"q3",sym:"0,1",self:true}
     ]
   },
   {
     id:4,name:"a*b*",
-    desc:"Language: strings of zero or more 'a's followed by zero or more 'b's (e.g., '', 'aaa', 'aabb', 'bbb').  q2 is a dead/trap state reached if 'a' appears after a 'b'.",
+    desc:"Language: zero or more 'a's followed by zero or more 'b's. q2 is a dead trap state reached when 'a' appears after a 'b'.",
     states:["q0","q1","q2"],alpha:["a","b"],start:"q0",accept:["q0","q1"],
     delta:{q0:{a:"q0",b:"q1"},q1:{a:"q2",b:"q1"},q2:{a:"q2",b:"q2"}},
     examples:["","aaa","bbb","aabb","ab","ba","abba"],
     layout:{q0:{x:130,y:95},q1:{x:340,y:95},q2:{x:540,y:95}},
     edges:[
-      {f:"q0",t:"q0",sym:"a",self:true},
-      {f:"q0",t:"q1",sym:"b",curve:0},
-      {f:"q1",t:"q1",sym:"b",self:true},
-      {f:"q1",t:"q2",sym:"a",curve:0},
+      {f:"q0",t:"q0",sym:"a",self:true},{f:"q0",t:"q1",sym:"b",curve:0},
+      {f:"q1",t:"q1",sym:"b",self:true},{f:"q1",t:"q2",sym:"a",curve:0},
       {f:"q2",t:"q2",sym:"a,b",self:true}
     ]
   }
 ];
 
 let curD=0,steps=[],si=-1,autoTimer=null;
+let history=[];
+try{history=JSON.parse(localStorage.getItem('dfa_history')||'[]');}catch(e){history=[];}
+
+function saveToStorage(){
+  try{localStorage.setItem('dfa_history',JSON.stringify(history));}catch(e){}
+}
+
+function getResult(str,d){
+  let state=d.start;
+  if(str.length===0) return d.accept.includes(state);
+  for(let i=0;i<str.length;i++){
+    const nxt=d.delta[state]?.[str[i]];
+    if(nxt===undefined) return false;
+    state=nxt;
+  }
+  return d.accept.includes(state);
+}
+
+function saveInput(){
+  const val=document.getElementById('strInput').value;
+  const d=DFAS[curD];
+  const accepted=getResult(val,d);
+  const entry={str:val,dfa:d.name,dfaId:curD,accepted,ts:Date.now()};
+  const dup=history.findIndex(h=>h.str===val&&h.dfaId===curD);
+  if(dup!==-1) history.splice(dup,1);
+  history.unshift(entry);
+  if(history.length>50) history=history.slice(0,50);
+  saveToStorage();
+  renderHistory();
+  const btn=event.currentTarget;
+  const orig=btn.textContent;
+  btn.textContent='Saved!';
+  setTimeout(()=>{btn.textContent=orig;},800);
+}
+
+function loadEntry(entry){
+  if(entry.dfaId!==curD) setDFA(entry.dfaId);
+  document.getElementById('strInput').value=entry.str;
+  initSim();
+}
+
+function deleteEntry(idx,e){
+  e.stopPropagation();
+  history.splice(idx,1);
+  saveToStorage();
+  renderHistory();
+}
+
+function clearHistory(){
+  if(!history.length) return;
+  history=[];
+  saveToStorage();
+  renderHistory();
+}
+
+function renderHistory(){
+  const list=document.getElementById('historyList');
+  const countEl=document.getElementById('histCount');
+  countEl.textContent=history.length?`${history.length} saved`:'';
+  if(!history.length){
+    list.innerHTML='<div class="empty-msg">No saved inputs yet. Run a string, then click Save.</div>';
+    return;
+  }
+  list.innerHTML='';
+  history.forEach((h,i)=>{
+    const row=document.createElement('div');
+    row.className='history-item';
+    row.title='Click to load this input';
+    row.onclick=()=>loadEntry(h);
+
+    const strEl=document.createElement('span');
+    strEl.className='hi-str'+(h.str===''?' mt':'');
+    strEl.textContent=h.str===''?'\u03b5 (empty string)':h.str;
+
+    const badge=document.createElement('span');
+    badge.className='hi-badge '+(h.accepted?'hi-acc':'hi-rej');
+    badge.textContent=h.accepted?'Accepted':'Rejected';
+
+    const dfaEl=document.createElement('span');
+    dfaEl.className='hi-dfa';
+    dfaEl.textContent=h.dfa;
+
+    const del=document.createElement('button');
+    del.className='hi-del';
+    del.textContent='\u00d7';
+    del.title='Remove';
+    del.onclick=(e)=>deleteEntry(i,e);
+
+    row.appendChild(strEl);
+    row.appendChild(badge);
+    row.appendChild(dfaEl);
+    row.appendChild(del);
+    list.appendChild(row);
+  });
+}
 
 function setDFA(i){
   curD=i;
@@ -237,7 +326,7 @@ function buildExamples(){
 function buildTable(highlightState=null,isDone=false,accepted=false){
   const d=DFAS[curD];
   let h=`<thead><tr><th>State</th>`;
-  d.alpha.forEach(a=>h+=`<th>&delta;(q, ${a})</th>`);
+  d.alpha.forEach(a=>h+=`<th>&delta;(q,${a})</th>`);
   h+=`</tr></thead><tbody>`;
   d.states.forEach(s=>{
     const isA=d.accept.includes(s),isS=s===d.start;
@@ -256,20 +345,15 @@ function drawDFA(activeState=null,activeEdge=null,finalState=null,accepted=null)
   const d=DFAS[curD],svg=document.getElementById('dfaSvg');
   const lay=d.layout,R=26;
   let out=`<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke="context-stroke"/></marker></defs>`;
-
   const sc=(s)=>{
-    if(s===activeState&&accepted===null) return{fill:'#E6F1FB',stroke:'#378ADD',text:'#0C447C',w:2};
-    if(s===finalState&&accepted===true) return{fill:'#EAF3DE',stroke:'#3B6D11',text:'#27500A',w:2};
-    if(s===finalState&&accepted===false) return{fill:'#FCEBEB',stroke:'#A32D2D',text:'#791F1F',w:2};
+    if(s===activeState&&accepted===null)return{fill:'#E6F1FB',stroke:'#378ADD',text:'#0C447C',w:2};
+    if(s===finalState&&accepted===true)return{fill:'#EAF3DE',stroke:'#3B6D11',text:'#27500A',w:2};
+    if(s===finalState&&accepted===false)return{fill:'#FCEBEB',stroke:'#A32D2D',text:'#791F1F',w:2};
     return{fill:'#fff',stroke:'#d3d1c7',text:'#1a1a18',w:0.8};
   };
-
   d.edges.forEach(e=>{
     const isHi=activeEdge&&activeEdge.f===e.f&&activeEdge.t===e.t;
-    const ec=isHi?'#378ADD':'#b4b2a9';
-    const ew=isHi?2:0.8;
-    const lc=isHi?'#0C447C':'#888780';
-    const lw=isHi?'600':'400';
+    const ec=isHi?'#378ADD':'#b4b2a9',ew=isHi?2:0.8,lc=isHi?'#0C447C':'#888780',lw=isHi?'600':'400';
     const p1=lay[e.f],p2=e.self?null:lay[e.t];
     if(e.self){
       const sx=p1.x,sy=p1.y-R;
@@ -280,8 +364,7 @@ function drawDFA(activeState=null,activeEdge=null,finalState=null,accepted=null)
     const dx=p2.x-p1.x,dy=p2.y-p1.y,len=Math.sqrt(dx*dx+dy*dy);
     const ux=dx/len,uy=dy/len,nx=-uy,ny=ux;
     if(e.curve){
-      const cv=e.curve*28;
-      const sx=p1.x+ux*R+nx*cv,sy=p1.y+uy*R+ny*cv;
+      const cv=e.curve*28,sx=p1.x+ux*R+nx*cv,sy=p1.y+uy*R+ny*cv;
       const ex=p2.x-ux*R+nx*cv,ey=p2.y-uy*R+ny*cv;
       const mx=(sx+ex)/2+nx*cv*.5,my=(sy+ey)/2+ny*cv*.5;
       out+=`<path d="M${sx} ${sy} Q${mx} ${my} ${ex} ${ey}" fill="none" stroke="${ec}" stroke-width="${ew}" marker-end="url(#ah)"/>`;
@@ -298,54 +381,42 @@ function drawDFA(activeState=null,activeEdge=null,finalState=null,accepted=null)
       out+=`<text x="${mx2+nx*12}" y="${my2+ny*12}" text-anchor="middle" font-size="11" fill="${lc}" font-weight="${lw}" font-family="monospace">${e.sym}</text>`;
     }
   });
-
   d.states.forEach(s=>{
-    const {x,y}=lay[s];
-    const C=sc(s);
-    const isA=d.accept.includes(s);
+    const {x,y}=lay[s],C=sc(s),isA=d.accept.includes(s);
     out+=`<circle cx="${x}" cy="${y}" r="${R}" fill="${C.fill}" stroke="${C.stroke}" stroke-width="${C.w}"/>`;
     if(isA) out+=`<circle cx="${x}" cy="${y}" r="${R-5}" fill="none" stroke="${C.stroke}" stroke-width="${C.w}"/>`;
     if(s===d.start) out+=`<line x1="${x-R-30}" y1="${y}" x2="${x-R-2}" y2="${y}" stroke="#b4b2a9" stroke-width="0.8" marker-end="url(#ah)"/>`;
     out+=`<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="${C.text}" font-family="-apple-system,sans-serif">${s}</text>`;
   });
-
   svg.innerHTML=out;
 }
 
 function initSim(){
   clearInterval(autoTimer);autoTimer=null;
   document.getElementById('btnAuto').textContent='Auto-play';
-  const d=DFAS[curD];
-  const inp=document.getElementById('strInput').value;
-  steps=[];
-  let state=d.start;
+  const d=DFAS[curD],inp=document.getElementById('strInput').value;
+  steps=[];let state=d.start;
   steps.push({type:'start',state,inp,idx:-1,sym:null,from:null});
   if(inp.length===0){
-    const acc=d.accept.includes(state);
-    steps.push({type:'end',state,inp,idx:-1,sym:null,from:state,accepted:acc});
+    steps.push({type:'end',state,inp,idx:-1,sym:null,from:state,accepted:d.accept.includes(state)});
   } else {
     for(let i=0;i<inp.length;i++){
-      const sym=inp[i];
-      const nxt=d.delta[state]?.[sym];
+      const sym=inp[i],nxt=d.delta[state]?.[sym];
       if(nxt===undefined){steps.push({type:'dead',state:null,inp,idx:i,sym,from:state,accepted:false});break;}
-      const isLast=i===inp.length-1;
-      const acc=isLast?d.accept.includes(nxt):null;
+      const isLast=i===inp.length-1,acc=isLast?d.accept.includes(nxt):null;
       steps.push({type:isLast?'end':'step',state:nxt,inp,idx:i,sym,from:state,accepted:acc});
       state=nxt;
     }
   }
-  si=0;
-  buildLog();renderStep();
+  si=0;renderStep();
   document.getElementById('btnPrev').disabled=true;
   document.getElementById('btnNext').disabled=steps.length<=1;
 }
 
 function resetAll(){
-  clearInterval(autoTimer);autoTimer=null;
-  si=-1;steps=[];
+  clearInterval(autoTimer);autoTimer=null;si=-1;steps=[];
   document.getElementById('tape').innerHTML='<span style="color:#888780;font-size:13px">Tape will appear here after Run.</span>';
   document.getElementById('stepPanel').innerHTML='<div style="color:#888780;font-size:13px">Press Run to start the simulation.</div>';
-  document.getElementById('logWrap').innerHTML='<span style="color:#888780;font-size:12px">Log will appear after Run.</span>';
   document.getElementById('stepCounter').textContent='';
   document.getElementById('btnPrev').disabled=true;
   document.getElementById('btnNext').disabled=true;
@@ -356,8 +427,7 @@ function resetAll(){
 function renderStep(){
   if(si<0||si>=steps.length)return;
   const s=steps[si],d=DFAS[curD];
-  const isDone=s.type==='end'||s.type==='dead';
-  const accepted=isDone?s.accepted:null;
+  const isDone=s.type==='end'||s.type==='dead',accepted=isDone?s.accepted:null;
   renderTape(s);renderPanel(s);
   buildTable(s.state,isDone,accepted??false);
   const edgeHi=(si>0&&s.from&&s.state&&s.type!=='dead')?{f:s.from,t:s.state}:null;
@@ -365,18 +435,16 @@ function renderStep(){
   document.getElementById('stepCounter').textContent=`Step ${si} / ${steps.length-1}`;
   document.getElementById('btnPrev').disabled=si===0;
   document.getElementById('btnNext').disabled=si>=steps.length-1;
-  highlightLog(si);
 }
 
 function renderTape(s){
-  const tape=document.getElementById('tape');
-  tape.innerHTML='';
-  const inp=s.inp;
-  if(inp.length===0){
-    const c=document.createElement('div');c.className='tc'+(s.type==='end'?(s.accepted?' accepted':' rejected'):'');
+  const tape=document.getElementById('tape');tape.innerHTML='';
+  if(s.inp.length===0){
+    const c=document.createElement('div');
+    c.className='tc'+(s.type==='end'?(s.accepted?' accepted':' rejected'):'');
     c.textContent='\u03b5';tape.appendChild(c);return;
   }
-  inp.split('').forEach((ch,i)=>{
+  s.inp.split('').forEach((ch,i)=>{
     const c=document.createElement('div');
     const isDone=s.type==='end'||s.type==='dead';
     let cls='tc';
@@ -392,17 +460,16 @@ function renderTape(s){
 function renderPanel(s){
   const p=document.getElementById('stepPanel');
   const isDone=s.type==='end'||s.type==='dead';
-  let verdict='';
-  if(isDone) verdict=s.accepted?`<span class="verdict v-accept">Accepted</span>`:`<span class="verdict v-reject">Rejected</span>`;
-  else verdict=`<span class="verdict v-running">Running &mdash; step ${si}</span>`;
-
+  let verdict=isDone
+    ?(s.accepted?'<span class="verdict v-accept">Accepted</span>':'<span class="verdict v-reject">Rejected</span>')
+    :`<span class="verdict v-running">Running &mdash; step ${si}</span>`;
   let formula='',explain='';
   if(s.type==='start'){
     formula=`Start state: ${s.state}`;
     explain=`The DFA begins in state <b>${s.state}</b>. No input has been read yet. The tape head is at position 0.`;
   } else if(s.type==='step'){
     formula=`&delta;(${s.from}, '${s.sym}') = ${s.state}`;
-    explain=`Reading symbol <b>'${s.sym}'</b> at tape position <b>${s.idx}</b>. Transition: from state <b>${s.from}</b>, on input <b>'${s.sym}'</b>, move to state <b>${s.state}</b>. Current state updated to <b>${s.state}</b>.`;
+    explain=`Reading symbol <b>'${s.sym}'</b> at tape position <b>${s.idx}</b>. Transition: from state <b>${s.from}</b>, on input <b>'${s.sym}'</b>, move to state <b>${s.state}</b>. Current state is now <b>${s.state}</b>.`;
   } else if(s.type==='end'&&s.sym){
     formula=`&delta;(${s.from}, '${s.sym}') = ${s.state} &rarr; ${s.accepted?'Accept':'Reject'}`;
     explain=`Last symbol <b>'${s.sym}'</b> read at position <b>${s.idx}</b>. Transition: <b>${s.from}</b> &rarr; <b>${s.state}</b>. All input consumed. State <b>${s.state}</b> is ${s.accepted?'an <b>accepting</b> state (marked *)':'<b>not</b> an accepting state'}. Final verdict: <b>${s.accepted?'ACCEPTED':'REJECTED'}</b>.`;
@@ -411,30 +478,9 @@ function renderPanel(s){
     explain=`The input string is empty (\u03b5). We check whether the start state <b>${s.state}</b> is an accepting state. ${s.accepted?`It is &mdash; the empty string is <b>accepted</b>.`:`It is not &mdash; the empty string is <b>rejected</b>.`}`;
   } else if(s.type==='dead'){
     formula=`&delta;(${s.from}, '${s.sym}') = undefined`;
-    explain=`Symbol <b>'${s.sym}'</b> at position <b>${s.idx}</b> has <b>no defined transition</b> from state <b>${s.from}</b>. The DFA falls into a dead (trap) state. String is <b>rejected</b>.`;
+    explain=`Symbol <b>'${s.sym}'</b> at position <b>${s.idx}</b> has <b>no defined transition</b> from state <b>${s.from}</b>. The DFA enters a dead (trap) state. String is <b>rejected</b>.`;
   }
   p.innerHTML=`<div class="step-header"><span class="step-num">Step ${si}</span><span class="step-formula">${formula}</span>${verdict}</div><div class="step-explain">${explain}</div>`;
-}
-
-function buildLog(){
-  const lw=document.getElementById('logWrap');lw.innerHTML='';
-  steps.forEach((s,i)=>{
-    const row=document.createElement('div');row.className='log-row';row.id='lr'+i;
-    let f='',e='',cls='';
-    if(s.type==='start'){f=`start &rarr; ${s.state}`;e='DFA initialized';}
-    else if(s.type==='step'){f=`\u03b4(${s.from}, '${s.sym}') = ${s.state}`;e=`pos ${s.idx}: read '${s.sym}', go to ${s.state}`;}
-    else if(s.type==='end'&&s.sym){f=`\u03b4(${s.from}, '${s.sym}') = ${s.state}`;e=`last symbol \u2192 ${s.accepted?'ACCEPT':'REJECT'}`;cls=s.accepted?'lr-acc':'lr-rej';}
-    else if(s.type==='end'&&!s.sym){f=`start=${s.state}`;e=`empty input \u2192 ${s.accepted?'ACCEPT':'REJECT'}`;cls=s.accepted?'lr-acc':'lr-rej';}
-    else if(s.type==='dead'){f=`\u03b4(${s.from}, '${s.sym}') = ?`;e=`no transition \u2192 REJECT`;cls='lr-rej';}
-    row.innerHTML=`<span class="lr-n">${i}</span><span class="lr-f">${f}</span><span class="lr-e ${cls}">${e}</span>`;
-    lw.appendChild(row);
-  });
-}
-
-function highlightLog(i){
-  document.querySelectorAll('.log-row').forEach((r,j)=>{r.classList.toggle('lr-hi',j===i);});
-  const el=document.getElementById('lr'+i);
-  if(el)el.scrollIntoView({block:'nearest'});
 }
 
 function prevStep(){if(si>0){si--;renderStep();}}
@@ -442,7 +488,7 @@ function nextStep(){if(si<steps.length-1){si++;renderStep();}}
 
 function autoPlay(){
   if(autoTimer){clearInterval(autoTimer);autoTimer=null;document.getElementById('btnAuto').textContent='Auto-play';return;}
-  if(steps.length===0)return;
+  if(!steps.length)return;
   if(si>=steps.length-1)si=0;
   document.getElementById('btnAuto').textContent='Pause';
   renderStep();
@@ -453,6 +499,7 @@ function autoPlay(){
 }
 
 setDFA(0);
+renderHistory();
 document.getElementById('strInput').addEventListener('keydown',e=>{if(e.key==='Enter')initSim();});
 </script>
 </body>
